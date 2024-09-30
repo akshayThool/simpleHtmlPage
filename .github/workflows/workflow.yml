@@ -1,0 +1,16 @@
+name: Invokable Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Run a Script or a command
+        run: echo "Hello World"
