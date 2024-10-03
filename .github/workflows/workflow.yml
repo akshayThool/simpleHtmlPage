@@ -3,17 +3,9 @@ name: Invokable Workflow
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
+      applicationUrl:
+        type: string
+        description: Application URL that is to be tested
       environment:
         type: environment
 
@@ -28,5 +20,5 @@ jobs:
         run: ls
       - name: Run a Script or a command
         run: echo "Hello World"
-      - name: Send greeting
-        run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      - name: Application URL
+        run: echo "${{ github.event.inputs.applicationURL }} received from node js server and is it ready to be tested"
